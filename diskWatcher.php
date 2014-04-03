@@ -11,7 +11,7 @@ $flags      = new donatj\Flags();
 $min        = & $flags->uint('min-free', null, 'Minimum amount free in gigs.');
 $path       = & $flags->string('path', '/', 'Path to watch disk space of.');
 $sleep      = & $flags->uint('sleep', 10, 'Seconds to sleep between disk checks.');
-$note_sleep = & $flags->uint('sleep', 300, 'Seconds to sleep after a notification.');
+$note_sleep = & $flags->uint('note-sleep', 300, 'Seconds to sleep after a notification.');
 
 try {
 	$flags->parse();
