@@ -11,7 +11,7 @@ $po = new donatj\Pushover($config['pushover']['api_key'], $config['pushover']['u
 
 $flags      = new donatj\Flags();
 $min        = & $flags->uint('min-free', null, 'Minimum amount free in gigs.');
-$sleep      = & $flags->uint('sleep', 1, 'Seconds to sleep between disk checks.');
+$sleep      = & $flags->uint('sleep', 10, 'Seconds to sleep between disk checks.');
 $note_sleep = & $flags->uint('note-sleep', 300, 'Seconds to sleep after a notification.');
 
 try {
