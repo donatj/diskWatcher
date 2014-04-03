@@ -3,6 +3,8 @@
 
 require('vendor/autoload.php');
 
+date_default_timezone_set(@date_default_timezone_get());
+
 $config = parse_ini_file('config.ini', true);
 
 $po = new donatj\Pushover($config['pushover']['api_key'], $config['pushover']['user_key']);
