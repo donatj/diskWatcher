@@ -19,7 +19,8 @@ try {
 	die($e->getMessage() . PHP_EOL . $flags->getDefaults() . PHP_EOL);
 }
 
-$min_bytes = $min * 1073741824;
+$gig_bytes = 1073741824;
+$min_bytes = $min * $gig_bytes;
 
 while( true ) {
 	$free = disk_free_space($path);
@@ -29,7 +30,7 @@ while( true ) {
 		echo "notified\n";
 		sleep($note_sleep);
 	} else {
-		echo '.';
+		echo intval($free / $gig_bytes) . ' ';
 		sleep($sleep);
 	}
 }
