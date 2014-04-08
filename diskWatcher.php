@@ -28,6 +28,7 @@ $gig_bytes = 1073741824;
 $min_bytes = $min * $gig_bytes;
 
 while( true ) {
+	$sleep_time = $sleep;
 
 	foreach($paths as $path) {
 		$free = disk_free_space($path);
@@ -39,7 +40,6 @@ while( true ) {
 			$sleep_time = $note_sleep;
 		} else {
 			echo "{$path}\t{$readable_gb} GB\t" . date("Y-m-d H:i:s") . "\n";
-			$sleep_time = $sleep;
 		}
 	}
 
