@@ -22,6 +22,7 @@ try {
 
 $paths      = $flags->args() ?: array('/');
 $path_count = count($paths);
+$max_length = max(array_map('strlen', $paths));
 $sleep_time = $sleep;
 
 $gig_bytes = 1073741824;
@@ -39,7 +40,7 @@ while( true ) {
 			echo $readable_gb . " - notified\n";
 			$sleep_time = $note_sleep;
 		} else {
-			echo "{$path}\t{$readable_gb} GB\t" . date("Y-m-d H:i:s") . "\n";
+			echo str_pad($path, $max_length + 3) . " {$readable_gb} GB\t" . date("Y-m-d H:i:s") . "\n";
 		}
 	}
 
