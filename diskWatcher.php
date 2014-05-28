@@ -20,7 +20,7 @@ try {
 	die($e->getMessage() . PHP_EOL . $flags->getDefaults() . PHP_EOL);
 }
 
-$paths      = $flags->args() ?: array('/');
+$paths = $flags->args() ? : array( '/' );
 $path_count = count($paths);
 $max_length = max(array_map('strlen', $paths));
 $sleep_time = $sleep;
@@ -31,12 +31,12 @@ $min_bytes = $min * $gig_bytes;
 while( true ) {
 	$sleep_time = $sleep;
 
-	foreach($paths as $path) {
+	foreach( $paths as $path ) {
 		$free = disk_free_space($path);
 
 		$readable_gb = intval($free / $gig_bytes);
 		if( $free < $min_bytes ) {
-			$po->send('Under minimum space for "'. $path .'" on ' . gethostname() . '. at ' . $readable_gb, array( 'priority' => 1, 'sound' => 'updown' )) or die('Message Failed');
+			$po->send('Under minimum space for "' . $path . '" on ' . gethostname() . '. at ' . $readable_gb, array( 'priority' => 1, 'sound' => 'updown' )) or die('Message Failed');
 			echo $readable_gb . " - notified\n";
 			$sleep_time = $note_sleep;
 		} else {
