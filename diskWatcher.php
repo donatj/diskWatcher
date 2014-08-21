@@ -36,7 +36,7 @@ while( true ) {
 
 		$readable_gb = intval($free / $gig_bytes);
 		if( $free < $min_bytes ) {
-			$po->send('Under minimum space for "' . $path . '" on ' . gethostname() . '. at ' . $readable_gb, array( 'priority' => 1, 'sound' => 'updown' )) or die('Message Failed');
+			$po->send('Under minimum space for "' . $path . '" on ' . gethostname() . '. at ' . $readable_gb . ' GB', array( 'priority' => 1, 'sound' => 'updown' )) or die('Message Failed');
 			echo $readable_gb . " - notified\n";
 			$sleep_time = $note_sleep;
 		} else {
